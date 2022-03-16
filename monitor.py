@@ -50,7 +50,7 @@ class CheatMonitor:
     
     def wants_think(self,i):
         self.mutex.acquire()
-        self.other_eating.wait_for(self.can_think)
+        self.other_eating.wait_for(self.can_think, 0.5)
         self.eating.value -= 1
         self.mutex.release()
         
